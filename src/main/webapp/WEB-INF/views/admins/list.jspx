@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_pl_edu_pk_biuropodrozy_domain_Admin" items="${admins}" z="0Jdf9QQuItsqj25NwLEy4wweepA=">
+        <table:table data="${admins}" id="l_pl_edu_pk_biuropodrozy_domain_Admin" path="/admins" z="csW0/ypqnKNdozhzEWBjmQAVKEk=">
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Admin_login" property="login" z="HSTlW0mMdJ1+5z/jOLQ67TB3hGc="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Admin_password" property="password" z="99HySxOAt8cUtRSA1lEHChSVUTg="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Admin_firstName" property="firstName" z="/+fu8YF82282jIj+sTk+NQDZeK8="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Admin_lastName" property="lastName" z="KZ550HPjw16qfoi30Jo3c19uckw="/>
+        </table:table>
+    </page:list>
+</div>

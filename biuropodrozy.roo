@@ -1,0 +1,122 @@
+project --topLevelPackage pl.edu.pk.biuropodrozy
+// ZPI Biuro podróży
+
+jpa setup --provider HIBERNATE --database MYSQL
+
+//Admin
+//--------------
+//id
+//login
+//password
+//firstName
+//lastName
+entity jpa --class ~.domain.Admin --sequenceName ADMIN_SEQ --equals 
+field string --fieldName login --notNull --sizeMin 5 --sizeMax 32
+field string --fieldName password --notNull --sizeMax 32
+field string --fieldName firstName --notNull --sizeMin 3 --sizeMax 32
+field string --fieldName lastName --notNull --sizeMin 3 --sizeMax 32
+
+//Member
+//--------------
+//id
+//firstName
+//lastName
+//trips* | set
+entity jpa --class ~.domain.Member --abstract --sequenceName MEMBER_SEQ --permitReservedWords --equals 
+field string --fieldName firstName --notNull --sizeMin 3 --sizeMax 32
+field string --fieldName lastName --notNull --sizeMin 3 --sizeMax 32
+
+//Customer -> Member
+//--------------
+//login
+//password
+entity jpa --class ~.domain.Customer --extends ~.domain.Member --equals 
+field string --fieldName login --notNull --sizeMin 5 --sizeMax 32
+field string --fieldName password --notNull --sizeMax 32
+
+//Guest -> Member
+//--------------
+//customer*
+entity jpa --class ~.domain.Guest --extends ~.domain.Member --equals 
+field reference --fieldName customer --type ~.domain.Customer 
+
+//Location
+//--------------
+//id
+//city
+//country
+entity jpa --class ~.domain.Location --sequenceName LOCATION_SEQ --equals 
+field string --fieldName city --notNull --sizeMax 32
+field string --fieldName country --notNull --sizeMax 32
+
+//Hotel
+//--------------
+//id
+//name
+//description
+//stars
+entity jpa --class ~.domain.Hotel --sequenceName HOTEL_SEQ --equals 
+field string --fieldName name --notNull --sizeMax 255
+field string --fieldName description --notNull --sizeMax 1024
+field number --fieldName stars --type int --notNull
+
+//Trip
+//--------------
+//id
+//name
+//description
+//cost
+//breakfast
+//hotel*
+//location*
+//members* | set
+//images*  | set
+entity jpa --class ~.domain.Trip --sequenceName TRIP_SEQ --equals 
+field string --fieldName name --notNull --sizeMax 255
+field string --fieldName description --notNull --sizeMax 1024
+field number --fieldName cost --type java.math.BigDecimal --notNull
+field boolean --fieldName breakfast --notNull --value true
+field reference --fieldName hotel --type ~.domain.Hotel --notNull
+field reference --fieldName location --type ~.domain.Location --notNull 
+
+
+//TripMember
+//--------------
+entity jpa --class ~.domain.TripMember --sequenceName TRIP_MEMBER_SEQ --equals
+field reference --fieldName trip --type ~.domain.Trip --cardinality MANY_TO_ONE
+field reference --fieldName member --type ~.domain.Member --cardinality MANY_TO_ONE --permitReservedWords
+
+field set --fieldName trips --type ~.domain.TripMember --mappedBy member --notNull false --cardinality ONE_TO_MANY --fetch LAZY --class ~.domain.Member
+field set --fieldName members --type ~.domain.TripMember --mappedBy trip --notNull false --cardinality ONE_TO_MANY --fetch LAZY --class ~.domain.Trip
+
+
+//Image
+//--------------
+//id
+//image
+//trip*
+entity jpa --class ~.domain.Image --sequenceName IMAGE_SEQ --equals 
+field file --fieldName image --contentType JPG
+field reference --fieldName trip --type ~.domain.Trip --cardinality MANY_TO_ONE
+// Trip images
+field set --fieldName images --type ~.domain.Image --mappedBy trip --notNull false --cardinality ONE_TO_MANY --fetch LAZY --class ~.domain.Trip
+
+//Payment
+//--------------
+//customer*
+//trip*
+//paid
+entity jpa --class ~.domain.Payment --sequenceName PAYMENT_SEQ --equals 
+field reference --fieldName trip --type ~.domain.Trip --notNull
+field reference --fieldName customer --type ~.domain.Customer --notNull
+field boolean --fieldName paid --notNull --value false
+
+
+// Generate view
+web mvc setup
+web mvc all --package ~.web
+
+
+logging setup --level INFO
+
+perform eclipse

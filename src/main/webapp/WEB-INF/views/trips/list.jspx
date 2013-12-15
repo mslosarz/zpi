@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_pl_edu_pk_biuropodrozy_domain_Trip" items="${trips}" z="9DNToPopDCRtSH7MfwoOEYfV1/I=">
+        <table:table data="${trips}" id="l_pl_edu_pk_biuropodrozy_domain_Trip" path="/trips" z="9aqi9B1/xdVo5XaB8zmGMpTotQ0=">
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Trip_name" property="name" z="479IDICXSczFDC6MoxMosC652PI="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Trip_description" property="description" z="sC2xbWIqXcSZjENgzdPLn6MN8SM="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Trip_cost" property="cost" z="wu7Ea474Dua6Q1AiH4Em53hQirA="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Trip_breakfast" property="breakfast" z="JdgRRegYxysp5S7WKrVQP+Hmxdo="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Trip_hotel" property="hotel" z="gMgsT20eOr8ODeMc9aEamyzb69k="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Trip_location" property="location" z="M5qxJYCmh/2eA4r/ji5DzFemwAQ="/>
+        </table:table>
+    </page:list>
+</div>

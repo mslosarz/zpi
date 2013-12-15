@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_payment" z="KXvP3nk7swdtwqF1yirxi8G+72w=">
+            <menu:item id="i_payment_new" messageCode="global_menu_new" url="/payments?form" z="MsWgEk8mPOMZsZrpSmZ4EEiRzKQ="/>
+            <menu:item id="i_payment_list" messageCode="global_menu_list" url="/payments?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Z3RAJMV3OotiyNAbiUB5cNixuyY="/>
+        </menu:category>
+        <menu:category id="c_admin" z="yJekxb7XuSQP9KBD9S6wbwLaHZY=">
+            <menu:item id="i_admin_new" messageCode="global_menu_new" url="/admins?form" z="TPmBX+1lfAP8gYU/pX/jcYwsTfM="/>
+            <menu:item id="i_admin_list" messageCode="global_menu_list" url="/admins?page=1&amp;size=${empty param.size ? 10 : param.size}" z="JRwUq6a+WGX2NnSSZCd4lcreuMk="/>
+        </menu:category>
+        <menu:category id="c_trip" z="h/AX4rednVpnDBieL7TobdFyklk=">
+            <menu:item id="i_trip_new" messageCode="global_menu_new" url="/trips?form" z="7dP92Z1DsvZwBMdp6TyvUdaNLXg="/>
+            <menu:item id="i_trip_list" messageCode="global_menu_list" url="/trips?page=1&amp;size=${empty param.size ? 10 : param.size}" z="z2x4tZhCFid8505ZwDcTFG1p0QI="/>
+        </menu:category>
+        <menu:category id="c_image" z="mSf7FGrRXXELgzAwg3iJrzzPIdc=">
+            <menu:item id="i_image_new" messageCode="global_menu_new" url="/images?form" z="oPECbYp27LyoOFNhUF5uzrz0lK8="/>
+            <menu:item id="i_image_list" messageCode="global_menu_list" url="/images?page=1&amp;size=${empty param.size ? 10 : param.size}" z="sH4rYLSx/udcaIMNLbr/uqABdVA="/>
+        </menu:category>
+        <menu:category id="c_customer" z="Wa+bVSiDyYo/wX1nGU1B/z+OKhE=">
+            <menu:item id="i_customer_new" messageCode="global_menu_new" url="/customers?form" z="d9+YIotZHp6KZLGKwwnMVzPvh8k="/>
+            <menu:item id="i_customer_list" messageCode="global_menu_list" url="/customers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Yo9cUtyc7EUvbxwQ7EoeqXWaVJM="/>
+        </menu:category>
+        <menu:category id="c_location" z="RvMgx8apsPylYygCQ4tMBVfulVw=">
+            <menu:item id="i_location_new" messageCode="global_menu_new" url="/locations?form" z="sW8KSnwNnd9wjssI0lLV1kzOguk="/>
+            <menu:item id="i_location_list" messageCode="global_menu_list" url="/locations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="VdKLEljpeTLil2W6A3GdWmSBzXI="/>
+        </menu:category>
+        <menu:category id="c_guest" z="crrLnK6pK4Nfmtab9eU2ffaKYNA=">
+            <menu:item id="i_guest_new" messageCode="global_menu_new" url="/guests?form" z="baSDTzc3maOz1M30W2zxZfuObIw="/>
+            <menu:item id="i_guest_list" messageCode="global_menu_list" url="/guests?page=1&amp;size=${empty param.size ? 10 : param.size}" z="9HKuaLyFz6H3mA7fntS1xKLh4mo="/>
+        </menu:category>
+        <menu:category id="c_hotel" z="7C2zkXEvMSfnPf6jh5Nc/V6fQEY=">
+            <menu:item id="i_hotel_new" messageCode="global_menu_new" url="/hotels?form" z="/WBsNr/VgyUOmLXLfXZU5LJT9sY="/>
+            <menu:item id="i_hotel_list" messageCode="global_menu_list" url="/hotels?page=1&amp;size=${empty param.size ? 10 : param.size}" z="FOElud587FYY5+wmWtI8bb6O3OY="/>
+        </menu:category>
+        <menu:category id="c_tripmember" z="JP1+iZXWctIBy5sbG6SWxsJvKIs=">
+            <menu:item id="i_tripmember_new" messageCode="global_menu_new" url="/tripmembers?form" z="Wr+DCHrodRLurSUFD0vjuj4w9NQ="/>
+            <menu:item id="i_tripmember_list" messageCode="global_menu_list" url="/tripmembers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="eWviJ48pHaP6EnTtjU9A6Kww+fE="/>
+        </menu:category>
+    </menu:menu>
+</div>

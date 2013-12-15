@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_pl_edu_pk_biuropodrozy_domain_Trip" modelAttribute="trip" path="/trips" versionField="Version" z="25QIMQs6wtbju6FGrQmpqz2UvGA=">
+        <field:textarea field="name" id="c_pl_edu_pk_biuropodrozy_domain_Trip_name" required="true" z="eSwft/0udk4LOFBoxm+CnMaN42I="/>
+        <field:textarea field="description" id="c_pl_edu_pk_biuropodrozy_domain_Trip_description" required="true" z="1qorV2woiYTJyNG9TGiWpWSn/HM="/>
+        <field:input field="cost" id="c_pl_edu_pk_biuropodrozy_domain_Trip_cost" required="true" validationMessageCode="field_invalid_number" z="i+5DGDLjHKIqGfElsebsiymTAyM="/>
+        <field:checkbox field="breakfast" id="c_pl_edu_pk_biuropodrozy_domain_Trip_breakfast" z="dW1nX3IzjVEsaXKctoxbywHBFpw="/>
+        <field:select field="hotel" id="c_pl_edu_pk_biuropodrozy_domain_Trip_hotel" itemValue="id" items="${hotels}" path="/hotels" required="true" z="B6L/yL7tygC2VHj1A54jaQe/3yI="/>
+        <field:select field="location" id="c_pl_edu_pk_biuropodrozy_domain_Trip_location" itemValue="id" items="${locations}" path="/locations" required="true" z="F9vgihj1S5iFjJ7duuI4tGNuGJ4="/>
+        <field:simple field="members" id="c_pl_edu_pk_biuropodrozy_domain_Trip_members" messageCode="entity_reference_not_managed" messageCodeAttribute="Trip Member" z="mfn2Qf8Qrvt068UsHxeTxSB4WOM="/>
+        <field:simple field="images" id="c_pl_edu_pk_biuropodrozy_domain_Trip_images" messageCode="entity_reference_not_managed" messageCodeAttribute="Image" z="Lr0gthSoDpdMgIdpxs6ERFT7pYI="/>
+    </form:update>
+</div>

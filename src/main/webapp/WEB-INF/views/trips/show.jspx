@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_pl_edu_pk_biuropodrozy_domain_Trip" object="${trip}" path="/trips" z="c3ZMR06XCM08PK5u8woxHbBvRbY=">
+        <field:display field="name" id="s_pl_edu_pk_biuropodrozy_domain_Trip_name" object="${trip}" z="97gfb2nCSpbrGgGk1G4SnWkVZWU="/>
+        <field:display field="description" id="s_pl_edu_pk_biuropodrozy_domain_Trip_description" object="${trip}" z="hIi29n2nfrySCP/PAhISnRWTLKk="/>
+        <field:display field="cost" id="s_pl_edu_pk_biuropodrozy_domain_Trip_cost" object="${trip}" z="ae4RizJx0njq/9A1382lZcXGuDs="/>
+        <field:display field="breakfast" id="s_pl_edu_pk_biuropodrozy_domain_Trip_breakfast" object="${trip}" z="Pc03Hjr1oUm92i8smwIDZys2YMo="/>
+        <field:display field="hotel" id="s_pl_edu_pk_biuropodrozy_domain_Trip_hotel" object="${trip}" z="8a+FfZLB35S1fPmnMnu5T2lPUSM="/>
+        <field:display field="location" id="s_pl_edu_pk_biuropodrozy_domain_Trip_location" object="${trip}" z="iO2MQZ1GwvNFO9XUjOePp/z4T4s="/>
+    </page:show>
+</div>

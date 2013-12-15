@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_pl_edu_pk_biuropodrozy_domain_Image" modelAttribute="image" path="/images" versionField="Version" z="Yr3tComWYV5vQnArXsbW67VOusI=">
+        <field:textarea field="image" id="c_pl_edu_pk_biuropodrozy_domain_Image_image" z="mg2VeXejFdYTC6KooU6o/NDnMTw="/>
+        <field:select field="trip" id="c_pl_edu_pk_biuropodrozy_domain_Image_trip" itemValue="id" items="${trips}" path="/trips" z="/KXvJ7D34gxyV6W8/m3Y+pbYlOM="/>
+    </form:update>
+</div>

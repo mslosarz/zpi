@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_pl_edu_pk_biuropodrozy_domain_Hotel" items="${hotels}" z="b8tf4Z7vfSi32SgcQqWUz9QAnts=">
+        <table:table data="${hotels}" id="l_pl_edu_pk_biuropodrozy_domain_Hotel" path="/hotels" z="aARlaVoLBlqQpnf5A/WoH+WkUnc=">
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Hotel_name" property="name" z="IZ2jLACqhK0i0a6y94OenIWMIRg="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Hotel_description" property="description" z="FwKOJNBpAQhFhli1MYLuMgqRofk="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Hotel_stars" property="stars" z="k9hKGrFj8orM+SrctEfWKafNQsY="/>
+        </table:table>
+    </page:list>
+</div>

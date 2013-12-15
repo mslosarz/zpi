@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_pl_edu_pk_biuropodrozy_domain_TripMember" modelAttribute="tripMember" path="/tripmembers" versionField="Version" z="/qVym/rZK6spEARC81hSu99RtWU=">
+        <field:select field="trip" id="c_pl_edu_pk_biuropodrozy_domain_TripMember_trip" itemValue="id" items="${trips}" path="/trips" z="SNCmecCB5PxR+PHqbF9uV+P4ESw="/>
+        <field:select field="member" id="c_pl_edu_pk_biuropodrozy_domain_TripMember_member" itemValue="id" items="${members}" path="/members" z="IhK3ym+p18PJi+Ziy9K277yHfYg="/>
+    </form:update>
+</div>

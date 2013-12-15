@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_pl_edu_pk_biuropodrozy_domain_Customer" modelAttribute="customer" path="/customers" versionField="Version" z="kLvOHWD3ediIpriICa0HhDd/s10=">
+        <field:textarea field="firstName" id="c_pl_edu_pk_biuropodrozy_domain_Customer_firstName" required="true" z="f8PpkmGS7pc/ncTj9XWRR5qE18I="/>
+        <field:textarea field="lastName" id="c_pl_edu_pk_biuropodrozy_domain_Customer_lastName" required="true" z="uF5AUG2JuY50a2P5nAg5N7p36YI="/>
+        <field:textarea field="login" id="c_pl_edu_pk_biuropodrozy_domain_Customer_login" required="true" z="M5GxlvYFulDICfGfLlGVTSPEDOg="/>
+        <field:textarea field="password" id="c_pl_edu_pk_biuropodrozy_domain_Customer_password" required="true" z="Ldh0Mw5oJ0dB7G163cW48qYKDVs="/>
+    </form:update>
+</div>
