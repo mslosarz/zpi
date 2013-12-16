@@ -1,7 +1,7 @@
 project --topLevelPackage pl.edu.pk.biuropodrozy
 // ZPI Biuro podróży
 
-jpa setup --provider HIBERNATE --database MYSQL
+jpa setup --provider HIBERNATE --database H2_IN_MEMORY
 
 //Admin
 //--------------

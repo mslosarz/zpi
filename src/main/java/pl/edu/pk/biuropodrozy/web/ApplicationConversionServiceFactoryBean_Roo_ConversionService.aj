@@ -14,7 +14,6 @@ import pl.edu.pk.biuropodrozy.domain.Image;
 import pl.edu.pk.biuropodrozy.domain.Location;
 import pl.edu.pk.biuropodrozy.domain.Payment;
 import pl.edu.pk.biuropodrozy.domain.Trip;
-import pl.edu.pk.biuropodrozy.domain.TripMember;
 import pl.edu.pk.biuropodrozy.web.ApplicationConversionServiceFactoryBean;
 
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
@@ -48,7 +47,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Customer, String> ApplicationConversionServiceFactoryBean.getCustomerToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<pl.edu.pk.biuropodrozy.domain.Customer, java.lang.String>() {
             public String convert(Customer customer) {
-                return new StringBuilder().append(customer.getFirstName()).append(' ').append(customer.getLastName()).append(' ').append(customer.getLogin()).append(' ').append(customer.getPassword()).toString();
+                return new StringBuilder().append(customer.getFirstName()).append(' ').append(customer.getLastName()).append(' ').append(customer.getLogin()).toString();
             }
         };
     }
@@ -213,30 +212,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<TripMember, String> ApplicationConversionServiceFactoryBean.getTripMemberToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<pl.edu.pk.biuropodrozy.domain.TripMember, java.lang.String>() {
-            public String convert(TripMember tripMember) {
-                return "(no displayable fields)";
-            }
-        };
-    }
-    
-    public Converter<Long, TripMember> ApplicationConversionServiceFactoryBean.getIdToTripMemberConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, pl.edu.pk.biuropodrozy.domain.TripMember>() {
-            public pl.edu.pk.biuropodrozy.domain.TripMember convert(java.lang.Long id) {
-                return TripMember.findTripMember(id);
-            }
-        };
-    }
-    
-    public Converter<String, TripMember> ApplicationConversionServiceFactoryBean.getStringToTripMemberConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, pl.edu.pk.biuropodrozy.domain.TripMember>() {
-            public pl.edu.pk.biuropodrozy.domain.TripMember convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), TripMember.class);
-            }
-        };
-    }
-    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
         registry.addConverter(getAdminToStringConverter());
         registry.addConverter(getIdToAdminConverter());
@@ -262,9 +237,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getTripToStringConverter());
         registry.addConverter(getIdToTripConverter());
         registry.addConverter(getStringToTripConverter());
-        registry.addConverter(getTripMemberToStringConverter());
-        registry.addConverter(getIdToTripMemberConverter());
-        registry.addConverter(getStringToTripMemberConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

@@ -6,6 +6,5 @@
         <field:display field="firstName" id="s_pl_edu_pk_biuropodrozy_domain_Customer_firstName" object="${customer}" z="GpCLoC7IfZ3TWQDEjqdyMbB/llI="/>
         <field:display field="lastName" id="s_pl_edu_pk_biuropodrozy_domain_Customer_lastName" object="${customer}" z="tTsU7bbW/WXTfi+mURVCHIQpsc4="/>
         <field:display field="login" id="s_pl_edu_pk_biuropodrozy_domain_Customer_login" object="${customer}" z="eA2mmnoZwveFeiNMnElvNOZx6cU="/>
-        <field:display field="password" id="s_pl_edu_pk_biuropodrozy_domain_Customer_password" object="${customer}" z="14jOgCgYiqLzJSFd+CGYMxtmGgo="/>
     </page:show>
 </div>
