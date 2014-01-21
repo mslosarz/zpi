@@ -12,7 +12,6 @@
         <intercept-url pattern="/payments/**" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/admins/**" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/images**" access="hasRole('ROLE_ADMIN')" />
-        <intercept-url pattern="/trips**" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/hotels/**" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/locations/**" access="hasRole('ROLE_ADMIN')" />
         
