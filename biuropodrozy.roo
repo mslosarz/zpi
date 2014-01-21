@@ -115,7 +115,7 @@ field boolean --fieldName paid --notNull --value false
 // Generate view
 web mvc setup
 web mvc all --package ~.web
-
+security setup
 
 logging setup --level INFO
 

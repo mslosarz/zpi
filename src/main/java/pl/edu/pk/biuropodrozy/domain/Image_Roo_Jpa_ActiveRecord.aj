@@ -14,6 +14,8 @@ privileged aspect Image_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Image.entityManager;
     
+    public static final List<String> Image.fieldNames4OrderClauseFilter = java.util.Arrays.asList("image", "trip");
+    
     public static final EntityManager Image.entityManager() {
         EntityManager em = new Image().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -28,6 +30,17 @@ privileged aspect Image_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM Image o", Image.class).getResultList();
     }
     
+    public static List<Image> Image.findAllImages(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Image o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Image.class).getResultList();
+    }
+    
     public static Image Image.findImage(Long id) {
         if (id == null) return null;
         return entityManager().find(Image.class, id);
@@ -35,6 +48,17 @@ privileged aspect Image_Roo_Jpa_ActiveRecord {
     
     public static List<Image> Image.findImageEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Image o", Image.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static List<Image> Image.findImageEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Image o";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        return entityManager().createQuery(jpaQuery, Image.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
