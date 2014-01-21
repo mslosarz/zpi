@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu"
+	xmlns:spring="http://www.springframework.org/tags"
 	xmlns:sec="http://www.springframework.org/security/tags" id="menu"
 	version="2.0">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
@@ -74,7 +75,8 @@
 			</menu:category>
 		</sec:authorize>
 		<sec:authorize ifNotGranted="ROLE_USER, ROLE_ADMIN">
-			<a href="login">Login</a>			
+			<spring:url var="login" value="/login"/>
+			<a href="${login}">Login</a>			
 			<menu:category id="c_trip" z="h/AX4rednVpnDBieL7TobdFyklk=">
 				<menu:item id="i_trip_list" messageCode="global_menu_list"
 					url="/trips?page=1&amp;size=${empty param.size ? 10 : param.size}"
