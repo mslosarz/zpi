@@ -4,7 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_pl_edu_pk_biuropodrozy_domain_Payment" items="${payments}" z="xnZjUwikjC6FaA1ZIwTLIzJESpE=">
         <table:table data="${payments}" id="l_pl_edu_pk_biuropodrozy_domain_Payment" path="/payments" z="B4x0e53LvCZylnROSiwr4qLjRTw=">
-            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Payment_trip" property="trip" z="GWRbAjGUk9BNYuLz2uywZuTYpt0="/>
             <table:column id="c_pl_edu_pk_biuropodrozy_domain_Payment_customer" property="customer" z="zoSlBJ42YOnHwsENgsBhooAn5Xw="/>
             <table:column id="c_pl_edu_pk_biuropodrozy_domain_Payment_paid" property="paid" z="bzhRtsT/BEyOYeJt8AiuRP7ObKA="/>
         </table:table>

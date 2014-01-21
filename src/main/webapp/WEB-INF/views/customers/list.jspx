@@ -7,6 +7,7 @@
             <table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_firstName" property="firstName" z="bH1uZo5ZF4hz4JSHMVjHGkFiKTQ="/>
             <table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_lastName" property="lastName" z="8WNacIRdmQDAyDvC5Xf34YfLr98="/>
             <table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_login" property="login" z="Skxdnwv467w151OLVF0y366tDGA="/>
+            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_password" property="password" z="jjERz+aGqMcOEaLvJyEBIbDvsjc="/>
         </table:table>
     </page:list>
 </div>

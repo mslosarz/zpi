@@ -14,8 +14,6 @@ privileged aspect Member_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Member.entityManager;
     
-    public static final List<String> Member.fieldNames4OrderClauseFilter = java.util.Arrays.asList("firstName", "lastName", "trips");
-    
     public static final EntityManager Member.entityManager() {
         EntityManager em = new Member() {
         }.entityManager;
@@ -31,17 +29,6 @@ privileged aspect Member_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM Member o", Member.class).getResultList();
     }
     
-    public static List<Member> Member.findAllMembers(String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Member o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, Member.class).getResultList();
-    }
-    
     public static Member Member.findMember(Long id) {
         if (id == null) return null;
         return entityManager().find(Member.class, id);
@@ -49,17 +36,6 @@ privileged aspect Member_Roo_Jpa_ActiveRecord {
     
     public static List<Member> Member.findMemberEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Member o", Member.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }
-    
-    public static List<Member> Member.findMemberEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Member o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, Member.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

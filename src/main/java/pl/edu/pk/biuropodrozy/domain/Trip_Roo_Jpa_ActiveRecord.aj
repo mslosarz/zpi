@@ -14,8 +14,6 @@ privileged aspect Trip_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Trip.entityManager;
     
-    public static final List<String> Trip.fieldNames4OrderClauseFilter = java.util.Arrays.asList("name", "description", "cost", "breakfast", "hotel", "location", "members", "images");
-    
     public static final EntityManager Trip.entityManager() {
         EntityManager em = new Trip().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -30,17 +28,6 @@ privileged aspect Trip_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM Trip o", Trip.class).getResultList();
     }
     
-    public static List<Trip> Trip.findAllTrips(String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Trip o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, Trip.class).getResultList();
-    }
-    
     public static Trip Trip.findTrip(Long id) {
         if (id == null) return null;
         return entityManager().find(Trip.class, id);
@@ -48,17 +35,6 @@ privileged aspect Trip_Roo_Jpa_ActiveRecord {
     
     public static List<Trip> Trip.findTripEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Trip o", Trip.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }
-    
-    public static List<Trip> Trip.findTripEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Trip o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, Trip.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

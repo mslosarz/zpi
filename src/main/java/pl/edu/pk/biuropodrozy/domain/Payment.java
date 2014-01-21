@@ -17,12 +17,6 @@ public class Payment {
      */
     @NotNull
     @ManyToOne
-    private Trip trip;
-
-    /**
-     */
-    @NotNull
-    @ManyToOne
     private Customer customer;
 
     /**

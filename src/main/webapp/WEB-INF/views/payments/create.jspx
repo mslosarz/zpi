@@ -3,7 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_pl_edu_pk_biuropodrozy_domain_Payment" modelAttribute="payment" path="/payments" render="${empty dependencies}" z="W7a2BnTOrk8XLp/YO+cRVDT2//A=">
-        <field:select field="trip" id="c_pl_edu_pk_biuropodrozy_domain_Payment_trip" itemValue="id" items="${trips}" path="/trips" required="true" z="t1YomzYHHnfTaGqimAhT+QGS89g="/>
         <field:select field="customer" id="c_pl_edu_pk_biuropodrozy_domain_Payment_customer" itemValue="id" items="${customers}" path="/customers" required="true" z="I79A8N7jbrczUmcQeYKCYqm5KCM="/>
         <field:checkbox field="paid" id="c_pl_edu_pk_biuropodrozy_domain_Payment_paid" z="0UlIou4ZW35FUbu6DnsRtQ3OoFk="/>
     </form:create>

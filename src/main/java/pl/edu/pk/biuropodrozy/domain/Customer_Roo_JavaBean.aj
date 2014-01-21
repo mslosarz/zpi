@@ -15,4 +15,12 @@ privileged aspect Customer_Roo_JavaBean {
         this.login = login;
     }
     
+    public String Customer.getPassword() {
+        return this.password;
+    }
+    
+    public void Customer.setPassword(String password) {
+        this.password = password;
+    }
+    
 }

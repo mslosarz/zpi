@@ -9,25 +9,12 @@ import pl.edu.pk.biuropodrozy.domain.Guest;
 
 privileged aspect Guest_Roo_Jpa_ActiveRecord {
     
-    public static final List<String> Guest.fieldNames4OrderClauseFilter = java.util.Arrays.asList("customer");
-    
     public static long Guest.countGuests() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Guest o", Long.class).getSingleResult();
     }
     
     public static List<Guest> Guest.findAllGuests() {
         return entityManager().createQuery("SELECT o FROM Guest o", Guest.class).getResultList();
-    }
-    
-    public static List<Guest> Guest.findAllGuests(String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Guest o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, Guest.class).getResultList();
     }
     
     public static Guest Guest.findGuest(Long id) {
@@ -37,17 +24,6 @@ privileged aspect Guest_Roo_Jpa_ActiveRecord {
     
     public static List<Guest> Guest.findGuestEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Guest o", Guest.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }
-    
-    public static List<Guest> Guest.findGuestEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Guest o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, Guest.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

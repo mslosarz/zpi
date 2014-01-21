@@ -17,4 +17,10 @@ public class Customer extends Member {
     @NotNull
     @Size(min = 5, max = 32)
     private String login;
+
+    /**
+     */
+    @NotNull
+    @Size(max = 32)
+    private String password;
 }

@@ -5,17 +5,8 @@ package pl.edu.pk.biuropodrozy.domain;
 
 import pl.edu.pk.biuropodrozy.domain.Customer;
 import pl.edu.pk.biuropodrozy.domain.Payment;
-import pl.edu.pk.biuropodrozy.domain.Trip;
 
 privileged aspect Payment_Roo_JavaBean {
-    
-    public Trip Payment.getTrip() {
-        return this.trip;
-    }
-    
-    public void Payment.setTrip(Trip trip) {
-        this.trip = trip;
-    }
     
     public Customer Payment.getCustomer() {
         return this.customer;

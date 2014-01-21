@@ -17,11 +17,11 @@ privileged aspect Payment_Roo_Equals {
             return true;
         }
         Payment rhs = (Payment) obj;
-        return new EqualsBuilder().append(customer, rhs.customer).append(id, rhs.id).append(paid, rhs.paid).append(trip, rhs.trip).isEquals();
+        return new EqualsBuilder().append(customer, rhs.customer).append(id, rhs.id).append(paid, rhs.paid).isEquals();
     }
     
     public int Payment.hashCode() {
-        return new HashCodeBuilder().append(customer).append(id).append(paid).append(trip).toHashCode();
+        return new HashCodeBuilder().append(customer).append(id).append(paid).toHashCode();
     }
     
 }

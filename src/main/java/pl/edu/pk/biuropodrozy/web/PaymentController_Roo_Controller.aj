@@ -18,7 +18,6 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import pl.edu.pk.biuropodrozy.domain.Customer;
 import pl.edu.pk.biuropodrozy.domain.Payment;
-import pl.edu.pk.biuropodrozy.domain.Trip;
 import pl.edu.pk.biuropodrozy.web.PaymentController;
 
 privileged aspect PaymentController_Roo_Controller {
@@ -38,9 +37,6 @@ privileged aspect PaymentController_Roo_Controller {
     public String PaymentController.createForm(Model uiModel) {
         populateEditForm(uiModel, new Payment());
         List<String[]> dependencies = new ArrayList<String[]>();
-        if (Trip.countTrips() == 0) {
-            dependencies.add(new String[] { "trip", "trips" });
-        }
         if (Customer.countCustomers() == 0) {
             dependencies.add(new String[] { "customer", "customers" });
         }
@@ -56,15 +52,15 @@ privileged aspect PaymentController_Roo_Controller {
     }
     
     @RequestMapping(produces = "text/html")
-    public String PaymentController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+    public String PaymentController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("payments", Payment.findPaymentEntries(firstResult, sizeNo, sortFieldName, sortOrder));
+            uiModel.addAttribute("payments", Payment.findPaymentEntries(firstResult, sizeNo));
             float nrOfPages = (float) Payment.countPayments() / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            uiModel.addAttribute("payments", Payment.findAllPayments(sortFieldName, sortOrder));
+            uiModel.addAttribute("payments", Payment.findAllPayments());
         }
         return "payments/list";
     }
@@ -99,7 +95,6 @@ privileged aspect PaymentController_Roo_Controller {
     void PaymentController.populateEditForm(Model uiModel, Payment payment) {
         uiModel.addAttribute("payment", payment);
         uiModel.addAttribute("customers", Customer.findAllCustomers());
-        uiModel.addAttribute("trips", Trip.findAllTrips());
     }
     
     String PaymentController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

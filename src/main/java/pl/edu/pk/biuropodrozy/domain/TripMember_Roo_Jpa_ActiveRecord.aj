@@ -14,8 +14,6 @@ privileged aspect TripMember_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager TripMember.entityManager;
     
-    public static final List<String> TripMember.fieldNames4OrderClauseFilter = java.util.Arrays.asList("trip", "member");
-    
     public static final EntityManager TripMember.entityManager() {
         EntityManager em = new TripMember().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
@@ -30,17 +28,6 @@ privileged aspect TripMember_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM TripMember o", TripMember.class).getResultList();
     }
     
-    public static List<TripMember> TripMember.findAllTripMembers(String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM TripMember o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, TripMember.class).getResultList();
-    }
-    
     public static TripMember TripMember.findTripMember(Long id) {
         if (id == null) return null;
         return entityManager().find(TripMember.class, id);
@@ -48,17 +35,6 @@ privileged aspect TripMember_Roo_Jpa_ActiveRecord {
     
     public static List<TripMember> TripMember.findTripMemberEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM TripMember o", TripMember.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }
-    
-    public static List<TripMember> TripMember.findTripMemberEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM TripMember o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, TripMember.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional

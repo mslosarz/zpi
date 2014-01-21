@@ -6,6 +6,7 @@
         <field:textarea field="firstName" id="c_pl_edu_pk_biuropodrozy_domain_Guest_firstName" required="true" z="rllNbMlpNKKqwQwZOOb7phJcwNY="/>
         <field:textarea field="lastName" id="c_pl_edu_pk_biuropodrozy_domain_Guest_lastName" required="true" z="uUMxcUsYmkuadVd3BdCgidRLMfU="/>
         <field:select field="customer" id="c_pl_edu_pk_biuropodrozy_domain_Guest_customer" itemValue="id" items="${customers}" path="/customers" z="NT6iKZzwh9bQROC+UzBxEA4OQcc="/>
+        <field:simple field="trips" id="c_pl_edu_pk_biuropodrozy_domain_Guest_trips" messageCode="entity_reference_not_managed" messageCodeAttribute="Trip Member" z="XdqERGctmx9MNfQhb8MdoO8NJDA="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_pl_edu_pk_biuropodrozy_domain_Guest" render="${not empty dependencies}" z="tM+G4S1H4xfPlwxVSNgR0zvbo94="/>
 </div>

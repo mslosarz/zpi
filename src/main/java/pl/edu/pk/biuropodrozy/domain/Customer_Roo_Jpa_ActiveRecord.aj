@@ -9,25 +9,12 @@ import pl.edu.pk.biuropodrozy.domain.Customer;
 
 privileged aspect Customer_Roo_Jpa_ActiveRecord {
     
-    public static final List<String> Customer.fieldNames4OrderClauseFilter = java.util.Arrays.asList("login", "password");
-    
     public static long Customer.countCustomers() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Customer o", Long.class).getSingleResult();
     }
     
     public static List<Customer> Customer.findAllCustomers() {
         return entityManager().createQuery("SELECT o FROM Customer o", Customer.class).getResultList();
-    }
-    
-    public static List<Customer> Customer.findAllCustomers(String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Customer o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, Customer.class).getResultList();
     }
     
     public static Customer Customer.findCustomer(Long id) {
@@ -37,17 +24,6 @@ privileged aspect Customer_Roo_Jpa_ActiveRecord {
     
     public static List<Customer> Customer.findCustomerEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM Customer o", Customer.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }
-    
-    public static List<Customer> Customer.findCustomerEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Customer o";
-        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
-            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
-            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
-                jpaQuery = jpaQuery + " " + sortOrder;
-            }
-        }
-        return entityManager().createQuery(jpaQuery, Customer.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
