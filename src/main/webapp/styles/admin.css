@@ -14,7 +14,7 @@ body {
   padding: 0;
   background-color: #fff;
   text-align: center;
-  position: relative;
+  border-top: solid 32px #666666;
 }
 
 body > #bg {
@@ -86,7 +86,7 @@ a img {
   display: block;
   margin: 0;
   padding: 2px 6px;
-  color:#FFFFFF;
+  color:#00aacc;
 }
 
 #menu h2 {
@@ -106,7 +106,6 @@ a img {
   border:none;
   margin-top:15px;
   border-top:1px solid #999999;
-  display: none;
 }
 
 #footer .new {
@@ -395,10 +394,14 @@ fieldset th {
 /******************************************************************************/
 
 ul#_menu > li {
-  box-shadow: 1px 1px 1px #aaa;
+  box-shadow: 0px 1px 3px #3C3C3C;
+}
+ul#_menu > li a{
+  color: #ffffff;
 }
 ul#_menu > li > h2 {
   background-color: rgba(0,0,0,0.1);
+  text-shadow: 0px -1px #000;
 }
 ul#_menu > li ul li {
   text-align: center;
