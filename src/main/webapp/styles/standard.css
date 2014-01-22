@@ -7,35 +7,53 @@ body,div,td {
 }
 
 body {
-	background-color: #fff;
-	text-align: center;
+	/*background-color: #fff;*/
+	/*text-align: center;*/
+        background: #cfcaca;
+        border-top: solid 20px #554949;
+        margin:0px;
+        height:100%;
 }
 
 #header {
-	margin-bottom: 1em;
+        height:240px;
+        max-height:240px;
+        min-height:240px;
+        font-size: 22px;
+        background-color: #554949;
+        color: #efefef;
 }
 
 #wrapper {
-	width:800px;
-	min-width: 800px;
-	max-width: 800px;
+	width:900px;
+	min-width: 900px;
+	max-width: 900px;
 	margin-right: auto;
 	margin-left: auto;
-
+        height:100%;
 	/* fix max-width incompatibility in IE6 */
-	width:expression(document.body.clientWidth > 800? "800px": "auto" );
-	
+	width:expression(document.body.clientWidth > 900? "900px": "auto" );
+	background-color: #fcfbf9;
 	overflow:hidden;
 	display:block;
 }
-
+#inner_wrapper{
+    width:900px;
+    min-width: 900px;
+    max-width: 900px;
+    min-height:300px;
+    background-color:#fcfbf9;
+}
 /* header and footer elements */
 
 #main {
 	overflow:hidden;
 	display:box;
 }
-
+#main_login_form{
+    max-width:350px;
+    margin:0 auto;
+}
 #menu {
 	background: #eee;
 	position:relative;
@@ -44,7 +62,15 @@ body {
 	width:220px;
 	margin-right:15px;
 }
-
+#menu-logo{
+    display: none!important;
+}
+#title p{
+    text-align: center;
+}
+#login_message{
+    text-align: center;
+}
 #menu ul{
 	list-style: none;
 	margin: 0;
@@ -64,11 +90,13 @@ body {
 }
 
 #menu h2 {
-	color: #fff;
-	background: #648C1D;
+	color: #5d5d5d;
+	background: #FC3;
 	text-transform: uppercase;
 	font-weight:bold;
 	font-size: 12px;
+        height: 25px;
+        padding-top: 5px;
 }
 
 #menu a {
@@ -79,22 +107,32 @@ body {
 }
 
 #menu a:hover {
-	color: #648C1D;
-	background: #fff;
+	color: #fff;
+	background: #e5b72e;
 }
 
 #footer {
-	background:#fff;
+	background:#554949;
 	border:none;
-	margin-top:15px;
-	border-top:1px solid #999999;
+        height:80px;
+        text-align: center;
+        padding-top:5px;
+        min-width: 900px;
+        max-width: 900px;
+        width: 900px;
+        margin-right: auto;
+	margin-left: auto;
 }
-
+#footer p{
+    color:#a39e9e;
+}
 #footer .new {
 	float:left;
 }
 
-#footer a:link {color: #7db223;}
+#footer a:link {color: #FC3;}
+
+
 
 .quicklinks {
 	clear:both; 
@@ -150,7 +188,7 @@ a.menu, a.menu:link, a.menu:visited {display:block; width:150px; height:25px;}
 
 h1,h2,h3 {
 	font-family: Helvetica, sans-serif;
-	color: #7db223;
+	color: #FC3;
 }
 
 h1 {
@@ -200,7 +238,7 @@ tr:nth-child(even) {
 }
 
 a:link {
-	color: #7db223;
+	color: #FC3;
 }
 
 a:hover {
@@ -208,11 +246,11 @@ a:hover {
 }
 
 a:active {
-	color: #7db223;
+	color: #FC3;
 }
 
 a:visited {
-	color: #7db223;
+	color: #FC3;
 }
 
 li {
