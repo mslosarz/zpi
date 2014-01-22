@@ -6,7 +6,8 @@ package pl.edu.pk.biuropodrozy.web;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
-import pl.edu.pk.biuropodrozy.domain.Admin;
+import pl.edu.pk.biuropodrozy.domain.Customer;
+import pl.edu.pk.biuropodrozy.domain.Guest;
 import pl.edu.pk.biuropodrozy.domain.Hotel;
 import pl.edu.pk.biuropodrozy.domain.Image;
 import pl.edu.pk.biuropodrozy.domain.Location;
@@ -19,26 +20,50 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
     
-    public Converter<Admin, String> ApplicationConversionServiceFactoryBean.getAdminToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<pl.edu.pk.biuropodrozy.domain.Admin, java.lang.String>() {
-            public String convert(Admin admin) {
-                return new StringBuilder().append(admin.getLogin()).append(' ').append(admin.getPassword()).append(' ').append(admin.getFirstName()).append(' ').append(admin.getLastName()).toString();
+    public Converter<Customer, String> ApplicationConversionServiceFactoryBean.getCustomerToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<pl.edu.pk.biuropodrozy.domain.Customer, java.lang.String>() {
+            public String convert(Customer customer) {
+                return new StringBuilder().append(customer.getFirstName()).append(' ').append(customer.getLastName()).append(' ').append(customer.getLogin()).append(' ').append(customer.getPassword()).toString();
             }
         };
     }
     
-    public Converter<Long, Admin> ApplicationConversionServiceFactoryBean.getIdToAdminConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, pl.edu.pk.biuropodrozy.domain.Admin>() {
-            public pl.edu.pk.biuropodrozy.domain.Admin convert(java.lang.Long id) {
-                return Admin.findAdmin(id);
+    public Converter<Long, Customer> ApplicationConversionServiceFactoryBean.getIdToCustomerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, pl.edu.pk.biuropodrozy.domain.Customer>() {
+            public pl.edu.pk.biuropodrozy.domain.Customer convert(java.lang.Long id) {
+                return Customer.findCustomer(id);
             }
         };
     }
     
-    public Converter<String, Admin> ApplicationConversionServiceFactoryBean.getStringToAdminConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, pl.edu.pk.biuropodrozy.domain.Admin>() {
-            public pl.edu.pk.biuropodrozy.domain.Admin convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), Admin.class);
+    public Converter<String, Customer> ApplicationConversionServiceFactoryBean.getStringToCustomerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, pl.edu.pk.biuropodrozy.domain.Customer>() {
+            public pl.edu.pk.biuropodrozy.domain.Customer convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Customer.class);
+            }
+        };
+    }
+    
+    public Converter<Guest, String> ApplicationConversionServiceFactoryBean.getGuestToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<pl.edu.pk.biuropodrozy.domain.Guest, java.lang.String>() {
+            public String convert(Guest guest) {
+                return new StringBuilder().append(guest.getFirstName()).append(' ').append(guest.getLastName()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Guest> ApplicationConversionServiceFactoryBean.getIdToGuestConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, pl.edu.pk.biuropodrozy.domain.Guest>() {
+            public pl.edu.pk.biuropodrozy.domain.Guest convert(java.lang.Long id) {
+                return Guest.findGuest(id);
+            }
+        };
+    }
+    
+    public Converter<String, Guest> ApplicationConversionServiceFactoryBean.getStringToGuestConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, pl.edu.pk.biuropodrozy.domain.Guest>() {
+            public pl.edu.pk.biuropodrozy.domain.Guest convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Guest.class);
             }
         };
     }
@@ -188,9 +213,12 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
-        registry.addConverter(getAdminToStringConverter());
-        registry.addConverter(getIdToAdminConverter());
-        registry.addConverter(getStringToAdminConverter());
+        registry.addConverter(getCustomerToStringConverter());
+        registry.addConverter(getIdToCustomerConverter());
+        registry.addConverter(getStringToCustomerConverter());
+        registry.addConverter(getGuestToStringConverter());
+        registry.addConverter(getIdToGuestConverter());
+        registry.addConverter(getStringToGuestConverter());
         registry.addConverter(getHotelToStringConverter());
         registry.addConverter(getIdToHotelConverter());
         registry.addConverter(getStringToHotelConverter());
