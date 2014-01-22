@@ -29,7 +29,6 @@
         <authentication-provider>
             <user-service>
                 <user name="admin" password="admin" authorities="ROLE_ADMIN" />
-                <user name="user" password="user" authorities="ROLE_USER" />
             </user-service>
         </authentication-provider>
         <authentication-provider>
@@ -37,6 +36,13 @@
 	      	data-source-ref="dataSource"
      		users-by-username-query="select login, password, 1 as enabled from member where login=?"
      		authorities-by-username-query="select login, 'ROLE_USER' from member where login=?"
+	       />
+	    </authentication-provider>
+	    <authentication-provider>
+	      <jdbc-user-service
+	      	data-source-ref="dataSource"
+     		users-by-username-query="select login, password, 1 as enabled from admin where login=?"
+     		authorities-by-username-query="select login, 'ROLE_ADMIN' from admin where login=?"
 	       />
 	    </authentication-provider>
     </authentication-manager>
