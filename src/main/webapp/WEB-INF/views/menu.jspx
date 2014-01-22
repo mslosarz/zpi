@@ -12,11 +12,6 @@
 			<spring:url value="/resources/j_spring_security_logout" var="logout" />
 			<a href="${logout}"> <spring:message code="security_logout" />
 			</a>
-			<menu:category id="c_trip" z="h/AX4rednVpnDBieL7TobdFyklk=">
-				<menu:item id="i_trip_list" messageCode="global_menu_list"
-					url="/trips?page=1&amp;size=${empty param.size ? 10 : param.size}"
-					z="z2x4tZhCFid8505ZwDcTFG1p0QI=" />
-			</menu:category>
 			<menu:category id="c_guest" z="crrLnK6pK4Nfmtab9eU2ffaKYNA=">
 				<menu:item id="i_guest_new" messageCode="global_menu_new"
 					url="/guests?form" z="baSDTzc3maOz1M30W2zxZfuObIw=" />
@@ -30,6 +25,13 @@
 				<menu:item id="i_tripmember_list" messageCode="global_menu_list"
 					url="/tripmembers?page=1&amp;size=${empty param.size ? 10 : param.size}"
 					z="eWviJ48pHaP6EnTtjU9A6Kww+fE=" />
+			</menu:category>
+		</sec:authorize>
+		<sec:authorize ifAnyGranted="ROLE_USER">
+			<menu:category id="c_trip" z="h/AX4rednVpnDBieL7TobdFyklk=">
+				<menu:item id="i_trip_list" messageCode="global_menu_list"
+					url="/trips?page=1&amp;size=${empty param.size ? 10 : param.size}"
+					z="z2x4tZhCFid8505ZwDcTFG1p0QI=" />
 			</menu:category>
 		</sec:authorize>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
