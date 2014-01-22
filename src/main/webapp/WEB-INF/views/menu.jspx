@@ -7,6 +7,30 @@
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
 	<menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+		<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
+			<spring:url value="/resources/j_spring_security_logout" var="logout" />
+			<a href="${logout}"> <spring:message code="security_logout" />
+			</a>
+			<menu:category id="c_trip" z="h/AX4rednVpnDBieL7TobdFyklk=">
+				<menu:item id="i_trip_list" messageCode="global_menu_list"
+					url="/trips?page=1&amp;size=${empty param.size ? 10 : param.size}"
+					z="z2x4tZhCFid8505ZwDcTFG1p0QI=" />
+			</menu:category>
+			<menu:category id="c_guest" z="crrLnK6pK4Nfmtab9eU2ffaKYNA=">
+				<menu:item id="i_guest_new" messageCode="global_menu_new"
+					url="/guests?form" z="baSDTzc3maOz1M30W2zxZfuObIw=" />
+				<menu:item id="i_guest_list" messageCode="global_menu_list"
+					url="/guests?page=1&amp;size=${empty param.size ? 10 : param.size}"
+					z="9HKuaLyFz6H3mA7fntS1xKLh4mo=" />
+			</menu:category>
+			<menu:category id="c_tripmember" z="JP1+iZXWctIBy5sbG6SWxsJvKIs=">
+				<menu:item id="i_tripmember_new" messageCode="global_menu_new"
+					url="/tripmembers?form" z="Wr+DCHrodRLurSUFD0vjuj4w9NQ=" />
+				<menu:item id="i_tripmember_list" messageCode="global_menu_list"
+					url="/tripmembers?page=1&amp;size=${empty param.size ? 10 : param.size}"
+					z="eWviJ48pHaP6EnTtjU9A6Kww+fE=" />
+			</menu:category>
+		</sec:authorize>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 			<menu:category id="c_payment" z="KXvP3nk7swdtwqF1yirxi8G+72w=">
 				<menu:item id="i_payment_new" messageCode="global_menu_new"
@@ -50,8 +74,6 @@
 					url="/locations?page=1&amp;size=${empty param.size ? 10 : param.size}"
 					z="VdKLEljpeTLil2W6A3GdWmSBzXI=" />
 			</menu:category>
-		</sec:authorize>
-		<sec:authorize ifAllGranted="ROLE_ADMIN, ROLE_USER">
 			<menu:category id="c_customer" z="Wa+bVSiDyYo/wX1nGU1B/z+OKhE=">
 				<menu:item id="i_customer_new" messageCode="global_menu_new"
 					url="/customers?form" z="d9+YIotZHp6KZLGKwwnMVzPvh8k=" />
@@ -59,24 +81,10 @@
 					url="/customers?page=1&amp;size=${empty param.size ? 10 : param.size}"
 					z="Yo9cUtyc7EUvbxwQ7EoeqXWaVJM=" />
 			</menu:category>
-			<menu:category id="c_guest" z="crrLnK6pK4Nfmtab9eU2ffaKYNA=">
-				<menu:item id="i_guest_new" messageCode="global_menu_new"
-					url="/guests?form" z="baSDTzc3maOz1M30W2zxZfuObIw=" />
-				<menu:item id="i_guest_list" messageCode="global_menu_list"
-					url="/guests?page=1&amp;size=${empty param.size ? 10 : param.size}"
-					z="9HKuaLyFz6H3mA7fntS1xKLh4mo=" />
-			</menu:category>
-			<menu:category id="c_tripmember" z="JP1+iZXWctIBy5sbG6SWxsJvKIs=">
-				<menu:item id="i_tripmember_new" messageCode="global_menu_new"
-					url="/tripmembers?form" z="Wr+DCHrodRLurSUFD0vjuj4w9NQ=" />
-				<menu:item id="i_tripmember_list" messageCode="global_menu_list"
-					url="/tripmembers?page=1&amp;size=${empty param.size ? 10 : param.size}"
-					z="eWviJ48pHaP6EnTtjU9A6Kww+fE=" />
-			</menu:category>
 		</sec:authorize>
 		<sec:authorize ifNotGranted="ROLE_USER, ROLE_ADMIN">
-			<spring:url var="login" value="/login"/>
-			<a href="${login}">Login</a>			
+			<spring:url var="login" value="/login" />
+			<a href="${login}">Login</a>
 			<menu:category id="c_trip" z="h/AX4rednVpnDBieL7TobdFyklk=">
 				<menu:item id="i_trip_list" messageCode="global_menu_list"
 					url="/trips?page=1&amp;size=${empty param.size ? 10 : param.size}"

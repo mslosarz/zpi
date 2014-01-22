@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_pl_edu_pk_biuropodrozy_domain_Customer" items="${customers}" z="JbMRw1mkR1/tarvVpiabk3eEKqI=">
-        <table:table data="${customers}" id="l_pl_edu_pk_biuropodrozy_domain_Customer" path="/customers" z="XC47oBka0swIUZOvZlmWM0L/6ps=">
-            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_firstName" property="firstName" z="bH1uZo5ZF4hz4JSHMVjHGkFiKTQ="/>
-            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_lastName" property="lastName" z="8WNacIRdmQDAyDvC5Xf34YfLr98="/>
-            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_login" property="login" z="Skxdnwv467w151OLVF0y366tDGA="/>
-            <table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_password" property="password" z="jjERz+aGqMcOEaLvJyEBIbDvsjc="/>
-        </table:table>
-    </page:list>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<sec:authorize ifAllGranted="ROLE_ADMIN">
+		<page:list id="pl_pl_edu_pk_biuropodrozy_domain_Customer"
+			items="${customers}" z="JbMRw1mkR1/tarvVpiabk3eEKqI=">
+			<table:table data="${customers}"
+				id="l_pl_edu_pk_biuropodrozy_domain_Customer" path="/customers"
+				z="XC47oBka0swIUZOvZlmWM0L/6ps=">
+				<table:column
+					id="c_pl_edu_pk_biuropodrozy_domain_Customer_firstName"
+					property="firstName" z="bH1uZo5ZF4hz4JSHMVjHGkFiKTQ=" />
+				<table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_lastName"
+					property="lastName" z="8WNacIRdmQDAyDvC5Xf34YfLr98=" />
+				<table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_login"
+					property="login" z="Skxdnwv467w151OLVF0y366tDGA=" />
+				<table:column id="c_pl_edu_pk_biuropodrozy_domain_Customer_password"
+					property="password" z="jjERz+aGqMcOEaLvJyEBIbDvsjc=" />
+			</table:table>
+		</page:list>
+	</sec:authorize>
 </div>
