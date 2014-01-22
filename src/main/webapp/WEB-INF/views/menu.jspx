@@ -4,8 +4,9 @@
 	xmlns:spring="http://www.springframework.org/tags"
 	xmlns:sec="http://www.springframework.org/security/tags" id="menu"
 	version="2.0">
-	<spring:url value="/resources/images/logo.png" var="logo" />
-	<a href="/" id="menu-logo"><img src="${logo}"></a>
+	<spring:url value="/" var="home" />
+	<spring:url value="/resources/images/logo.png" var="logoimg" />
+	<a href="${home}" id="menu-logo"><img src="${logoimg}"/></a>
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
 	<menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
