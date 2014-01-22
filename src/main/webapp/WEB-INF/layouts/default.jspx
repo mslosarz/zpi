@@ -17,14 +17,15 @@
 	
   	<body class="tundra spring">
    		<div id="wrapper">
-                    <tiles:insertAttribute name="header" ignore="true" />
-                    <div id="inner_wrapper">
-                        <tiles:insertAttribute name="menu" ignore="true" />   
-                        <div id="main">
-                            <tiles:insertAttribute name="body"/> 	    	
-                        </div>
-                    </div>
-                    <tiles:insertAttribute name="footer" ignore="true"/>
-		</div>
+          <tiles:insertAttribute name="header" ignore="true" />
+          <div id="inner_wrapper">
+              <tiles:insertAttribute name="menu" ignore="true" />   
+              <div id="main">
+                  <tiles:insertAttribute name="body"/> 	    	
+              </div>
+          </div>
+          <tiles:insertAttribute name="footer" ignore="true"/>
+  		</div>
+      <div id="bg"></div>
 	</body>
 </html>
